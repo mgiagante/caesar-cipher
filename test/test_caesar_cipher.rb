@@ -13,4 +13,16 @@ class CaesarTest < Minitest::Test
     assert_equal "Some message",
     decoded
   end
+
+  def test_encode_will_not_crash_if_no_string_provided
+    encoded = CaesarCipher.new(3).encode("")
+    assert_equal "No message has been provided",
+    encoded
+  end
+
+  def test_encode_will_not_crash_if_not_string_provided
+    encoded = CaesarCipher.new(3).encode(7)
+    assert_equal ":",
+    encoded
+  end
 end
