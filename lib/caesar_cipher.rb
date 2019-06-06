@@ -1,19 +1,7 @@
-require_relative 'caesar_cipher/cipher.rb'
+require 'caesar_cipher/cipher'
+require 'caesar_cipher/version'
 
-class CaesarCipher
-  
-  def initialize(key)
-    @key = key
-    @cipher = Cipher.new
-  end
- 
-  def encode(message)
-    @cipher.ciphering(message, @key)
-  end
-  
-  def decode(message)
-    @cipher.ciphering(message, (0-@key))
-  end
+module CaesarCipher
+  # Requiring cipher.rb brings the Cipher class here, making it available at
+  # this top level namespace.
 end
-
-puts CaesarCipher.new(3).encode("!")
